@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>小星老师 · 7岁启蒙学习</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">🐣</span>
+    <div>
+      <h1>小星老师</h1>
+      <p id="stateBadge" class="badge">欢迎页</p>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat star" title="当前星星"><span>⭐</span><b id="statStars">0</b></div>
+    <div class="stat" title="本次学习时长"><span>⏱️</span><b id="statMinutes">0</b><small>分</small></div>
+    <div class="stat" title="完成任务数"><span>✅</span><b id="statTasks">0</b></div>
+    <div class="stat" title="正确率"><span>🎯</span><b id="statAcc">—</b></div>
+  </div>
+
+  <div class="tools">
+    <button id="btnSpeak" class="tool on" title="朗读开关">🔊 朗读</button>
+    <button id="btnRestart" class="tool" title="重新开始本次学习">🔄 重开</button>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-panel="learn">📚 学习</button>
+  <button class="tab" data-panel="habit">🌟 打卡</button>
+  <button class="tab" data-panel="parent">👨‍👩‍👧 家长</button>
+</nav>
+
+<!-- ==================== 学习面板 ==================== -->
+<main id="panel-learn" class="panel active">
+  <section id="chat" class="chat" aria-live="polite"></section>
+
+  <div id="quick" class="quick"></div>
+
+  <form id="sayForm" class="composer" autocomplete="off">
+    <input id="sayInput" type="text" placeholder="打字回答，或点上面的按钮～" maxlength="60">
+    <button type="submit" class="send">发送</button>
+  </form>
+
+  <div id="parentNote" class="note hidden"></div>
+</main>
+
+<!-- ==================== 打卡面板 ==================== -->
+<main id="panel-habit" class="panel">
+  <section class="card">
+    <h2>今天的小目标 🎯</h2>
+    <div class="row">
+      <input id="goalInput" type="text" placeholder="例如：坐姿棒棒的" maxlength="30">
+      <button id="goalSave" class="primary">保存</button>
+    </div>
+    <p id="goalNow" class="muted"></p>
+  </section>
+
+  <section class="card">
+    <h2>习惯打卡（一天 6 项）</h2>
+    <div id="habitList" class="habit-list"></div>
+    <p id="habitSummary" class="muted"></p>
+  </section>
+
+  <section class="card">
+    <h2>本周习惯小报告 📊</h2>
+    <pre id="habitWeek" class="report">加载中…</pre>
+  </section>
+</main>
+
+<!-- ==================== 家长面板 ==================== -->
+<main id="panel-parent" class="panel">
+  <section class="card">
+    <h2>今日学习简报 📋</h2>
+    <div class="row wrap">
+      <button class="primary" data-report="today">今日简报</button>
+      <button data-report="week">本周周报</button>
+      <button data-report="advice">给我建议</button>
+    </div>
+    <pre id="parentReport" class="report">点上面的按钮，或直接在下面提问。</pre>
+  </section>
+
+  <section class="card">
+    <h2>向系统提问 💬</h2>
+    <div class="row">
+      <input id="askInput" type="text" placeholder="例如：今天正确率多少 / 打卡了吗" maxlength="60">
+      <button id="askSend" class="primary">提问</button>
+    </div>
+    <div class="row wrap small-actions">
+      <button class="chip" data-ask="今天学了什么">今天学了什么</button>
+      <button class="chip" data-ask="正确率多少">正确率多少</button>
+      <button class="chip" data-ask="打卡了吗">打卡了吗</button>
+      <button class="chip" data-ask="难度怎么样">难度怎么样</button>
+      <button class="chip" data-ask="今天有需要关注的吗">需关注事项</button>
+    </div>
+    <pre id="askAnswer" class="report"></pre>
+  </section>
+
+  <section class="card">
+    <h2>题库与安全边界 🔍</h2>
+    <pre id="bankInfo" class="report">加载中…</pre>
+  </section>
+</main>
+
+<footer class="foot">
+  本地运行 · 数据只存在本机 JSON 文件里 · 无第三方依赖
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

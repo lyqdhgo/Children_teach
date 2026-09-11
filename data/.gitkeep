@@ -1,0 +1,4 @@
+# 学习数据目录：程序首次运行时自动写入以下文件
+#   profile.json            孩子档案 / 星星 / 知识点掌握度
+#   learning_history.json   学习记录流水
+#   habit_log.json          习惯打卡日志

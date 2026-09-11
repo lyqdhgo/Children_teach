@@ -1,0 +1,20 @@
+# 运行期生成的学习数据（含孩子隐私，不建议提交到仓库）
+# 用 data/* 而非 data/，否则无法用 ! 反向保留目录内的占位文件
+data/*
+# 保留目录占位说明文件，便于克隆后直接运行
+!data/.gitkeep
+tests/_tmpdata/
+
+# 演示与测试产生的临时文件
+.tmpdata/
+.tmpdemo/
+.tmpdemo2/
+.testlog.txt
+.demolog.txt
+.habitlog.txt
+.write_probe
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/

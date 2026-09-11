@@ -1,0 +1,168 @@
+/* 小星老师 · 儿童友好界面：大字号、圆角、亮色、大点击区 */
+:root {
+  --sky: #7cc7ff;
+  --sky-deep: #3b9ae1;
+  --sun: #ffd166;
+  --grass: #7bd88f;
+  --ink: #2f3b52;
+  --ink-soft: #61708c;
+  --card: #ffffff;
+  --line: #e3ebf5;
+  --radius: 20px;
+  --shadow: 0 6px 20px rgba(63, 111, 168, .12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, #eaf6ff 0%, #f7fbff 45%, #fff9ec 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------- 顶栏 ---------------- */
+.topbar {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  padding: 12px 18px;
+  background: linear-gradient(120deg, var(--sky), #a9e0ff 60%, var(--sun));
+  box-shadow: var(--shadow);
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo { font-size: 34px; line-height: 1; }
+.brand h1 { margin: 0; font-size: 20px; letter-spacing: .5px; }
+.badge {
+  margin: 2px 0 0; font-size: 12px; font-weight: 700;
+  background: rgba(255, 255, 255, .75); color: var(--sky-deep);
+  display: inline-block; padding: 2px 10px; border-radius: 999px;
+}
+.stats { display: flex; gap: 8px; margin-left: auto; }
+.stat {
+  background: rgba(255, 255, 255, .85); border-radius: 14px;
+  padding: 6px 12px; font-size: 16px; font-weight: 700;
+  display: flex; align-items: center; gap: 4px; min-width: 62px; justify-content: center;
+}
+.stat small { font-size: 11px; font-weight: 500; color: var(--ink-soft); }
+.stat.star { background: #fff6d8; }
+.tools { display: flex; gap: 8px; }
+.tool {
+  border: none; border-radius: 999px; padding: 8px 14px; cursor: pointer;
+  font-size: 14px; font-weight: 700; background: rgba(255, 255, 255, .85); color: var(--ink);
+}
+.tool.on { background: #ffffff; box-shadow: inset 0 0 0 2px var(--sky-deep); }
+
+/* ---------------- 标签页 ---------------- */
+.tabs { display: flex; gap: 8px; padding: 10px 18px 0; }
+.tab {
+  border: none; cursor: pointer; font-size: 15px; font-weight: 700;
+  padding: 9px 18px; border-radius: 999px 999px 0 0;
+  background: #dceaf8; color: var(--ink-soft);
+}
+.tab.active { background: var(--card); color: var(--sky-deep); box-shadow: var(--shadow); }
+
+/* ---------------- 面板 ---------------- */
+.panel { display: none; flex: 1; padding: 14px 18px 20px; max-width: 900px; width: 100%; margin: 0 auto; }
+.panel.active { display: flex; flex-direction: column; gap: 12px; }
+
+/* ---------------- 对话 ---------------- */
+.chat {
+  flex: 1; min-height: 320px; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 14px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.row-msg { display: flex; gap: 10px; align-items: flex-end; }
+.row-msg.me { flex-direction: row-reverse; }
+.avatar {
+  width: 40px; height: 40px; flex: none; border-radius: 50%;
+  display: grid; place-items: center; font-size: 22px; background: #eaf6ff;
+}
+.row-msg.me .avatar { background: #eafaf0; }
+.bubble {
+  max-width: 74%; padding: 10px 14px; border-radius: 18px;
+  font-size: 17px; line-height: 1.65; white-space: pre-wrap; word-break: break-word;
+  background: #f1f7ff; border: 1px solid var(--line);
+}
+.row-msg.me .bubble { background: #e9fbee; border-color: #cdefd8; }
+.bubble.big { font-size: 19px; }
+.bubble .q { font-weight: 700; color: var(--sky-deep); }
+
+/* ---------------- 快捷按钮 ---------------- */
+.quick { display: flex; flex-wrap: wrap; gap: 8px; }
+.quick button {
+  border: 2px solid var(--sky); background: #fff; color: var(--sky-deep);
+  border-radius: 999px; padding: 10px 18px; font-size: 16px; font-weight: 700;
+  cursor: pointer; box-shadow: 0 3px 0 rgba(59, 154, 225, .25);
+}
+.quick button:active { transform: translateY(2px); box-shadow: none; }
+
+/* ---------------- 输入区 ---------------- */
+.composer { display: flex; gap: 8px; }
+.composer input {
+  flex: 1; border: 2px solid var(--line); border-radius: 999px;
+  padding: 12px 18px; font-size: 17px; outline: none; background: #fff;
+}
+.composer input:focus { border-color: var(--sky); }
+.send {
+  border: none; border-radius: 999px; padding: 0 24px; font-size: 17px; font-weight: 800;
+  background: var(--grass); color: #123; cursor: pointer;
+}
+
+.note {
+  background: #fff6d8; border: 1px solid #ffe1a3; border-radius: 16px;
+  padding: 10px 14px; font-size: 13px; color: #6b5417; white-space: pre-wrap;
+}
+.hidden { display: none; }
+
+/* ---------------- 卡片 / 表单 ---------------- */
+.card { background: var(--card); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow); }
+.card h2 { margin: 0 0 12px; font-size: 17px; }
+.row { display: flex; gap: 8px; }
+.row.wrap { flex-wrap: wrap; }
+.row input {
+  flex: 1; border: 2px solid var(--line); border-radius: 14px;
+  padding: 10px 14px; font-size: 16px; outline: none;
+}
+.row input:focus { border-color: var(--sky); }
+button.primary, .row button {
+  border: none; border-radius: 14px; padding: 10px 18px; font-size: 15px;
+  font-weight: 700; background: var(--sky); color: #fff; cursor: pointer;
+}
+button.primary:hover, .row button:hover { filter: brightness(1.05); }
+.chip {
+  background: #eef6ff !important; color: var(--sky-deep) !important;
+  border-radius: 999px !important; padding: 7px 14px !important; font-weight: 700;
+}
+.small-actions { margin-top: 10px; }
+.muted { color: var(--ink-soft); font-size: 13px; margin: 8px 0 0; }
+.report {
+  margin: 10px 0 0; padding: 12px 14px; border-radius: 14px; background: #f7fbff;
+  border: 1px solid var(--line); font-size: 14px; line-height: 1.7;
+  white-space: pre-wrap; word-break: break-word; font-family: inherit;
+}
+
+/* ---------------- 打卡列表 ---------------- */
+.habit-list { display: flex; flex-direction: column; gap: 10px; }
+.habit-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; border-radius: 16px; background: #f7fbff; border: 1px solid var(--line);
+}
+.habit-item.done { background: #eefaf0; border-color: #cdefd8; }
+.habit-item .label { flex: 1; font-size: 16px; font-weight: 700; }
+.habit-item .ask { display: block; font-size: 12px; font-weight: 400; color: var(--ink-soft); margin-top: 2px; }
+.habit-item button {
+  border: none; border-radius: 999px; padding: 9px 16px; font-size: 14px;
+  font-weight: 700; cursor: pointer; background: var(--grass); color: #123;
+}
+.habit-item button.undo { background: #f0f0f0; color: var(--ink-soft); }
+
+.foot { text-align: center; padding: 10px; font-size: 12px; color: var(--ink-soft); }
+
+@media (max-width: 620px) {
+  .stats { width: 100%; order: 3; margin-left: 0; }
+  .tools { margin-left: auto; }
+  .bubble { max-width: 84%; }
+  .composer input, .row input { font-size: 16px; }
+}
