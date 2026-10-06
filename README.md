@@ -1,4 +1,20 @@
-# 7 岁儿童启蒙教辅 Agent（后端）
+<div align="center">
+
+# 🎓 7 岁儿童启蒙教辅 Agent
+
+**面向 7 岁小学一年级孩子的启蒙学习 Agent · 语文 / 数学 / 英语 / 学习习惯**
+
+[![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![零依赖](https://img.shields.io/badge/核心-零第三方依赖-22C55E?style=flat-square)](#一快速开始)
+[![测试](https://img.shields.io/badge/测试-56%20passed-3FB950?style=flat-square)](#十一架构约束由测试固化)
+[![工作流图](https://img.shields.io/badge/架构-图驱动状态机-8B5CF6?style=flat-square)](#四工作流图摘要)
+[![Web UI](https://img.shields.io/badge/入口-CLI%20%7C%20网页%20%7C%20家长报告-0EA5E9?style=flat-square)](#三网页界面--web)
+
+[快速开始](#一快速开始) · [代码结构](#二代码结构分层--单一职责) · [网页界面](#三网页界面--web) · [工作流图](#四工作流图摘要) · [安全边界](#八安全边界硬编码--自动审计) · [自适应难度](#九自适应难度)
+
+</div>
+
+---
 
 面向 **7 岁小学一年级** 孩子的启蒙学习 Agent，覆盖**语文 / 数学 / 英语 / 学习习惯**四大模块。
 纯 Python 标准库实现（零第三方依赖），提供 CLI、可交互网页、家长报告三套入口。
