@@ -10,6 +10,7 @@
 [![工作流图](https://img.shields.io/badge/架构-图驱动状态机-8B5CF6?style=flat-square)](#四工作流图摘要)
 [![Web UI](https://img.shields.io/badge/入口-CLI%20%7C%20网页%20%7C%20家长报告-0EA5E9?style=flat-square)](#三网页界面--web)
 [![License: MIT](https://img.shields.io/badge/License-MIT-3DA639?style=flat-square)](./LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/lyqdhgo/Children_teach/ci.yml?style=flat-square&label=CI)](https://github.com/lyqdhgo/Children_teach/actions/workflows/ci.yml)
 
 [快速开始](#一快速开始) · [代码结构](#二代码结构分层--单一职责) · [网页界面](#三网页界面--web) · [工作流图](#四工作流图摘要) · [安全边界](#八安全边界硬编码--自动审计) · [自适应难度](#九自适应难度)
 
